@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>Meals</h1>
+    <hr>
+    <div *ngFor='let food of foods' (click)="onSelect(food)">
+      <h3>{{food.meal | uppercase}}</h3>
+      <p>Calories: {{food.calories}}</p>
+      <p>Details: {{food.details | titlecase}}</p>
+    </div>
+    <div *ngIf="selectedFood">
+      <h3>{{selectedFood.meal | uppercase}} Details:</h3>
+      <div>
+        <label>Meal:
+          <input [(ngModel)]="selectedFood.meal" />
+        </label>
+        <label>Calories:
+          <input [(ngModel)]="selectedFood.calories" />
+        </label>
+        <label>Details:
+          <input [(ngModel)]="selectedFood.details" />
+        </label>
+      </div>
+    </div>
+    <button (click)='highCalorieShow()'>View High Calorie Foods</button>
+  </div>
+  <div class="col-md-6">
+    <app-food-form (addMeal)="addNewMeal($event)"></app-food-form>
+  </div>
+</div>

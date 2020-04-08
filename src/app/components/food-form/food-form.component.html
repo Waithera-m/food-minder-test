@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <h1>Add Meals</h1>
+  <hr>
+  <form #foodForm='ngForm' (ngSubmit)='submitMeal()'>
+    <div class = "form-group">
+      <label for="meal">Meal</label>
+      <input type="text" class="form-control" id="meal" [(ngModel)]="newMeal.meal" name="meal" #name='ngModel' required>
+      
+      <!-- <div [hidden]="meal.valid || meal.pristine" class="alert alert-danger">
+        <p>Meal Name is required</p>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="calories">Calories</label>
+      <input type="number" class="form-control" id="calories" [(ngModel)]="newMeal.calories" name="calories" #name='ngModel' required>
+      
+      <!-- <div [hidden]="calories.valid || calories.pristine" class="alert alert-danger">
+        <p>Please indicate the number of calories in the meal</p>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="details">Details</label>
+      <textarea class="form-control" rows="4" id="details" [(ngModel)]="newMeal.details" name="details" #name='ngModel' required></textarea>
+      
+      <!-- <div [hidden]="details.valid || details.pristine" class="alert alert-danger">
+        <p>Please add some meal details</p>
+      </div> -->
+    </div>
+    <button type="submit" class="btn btn-dark">Add Meal</button>
+  </form>
+</div>
